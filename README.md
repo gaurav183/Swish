@@ -4,7 +4,7 @@ Using optimized mobile vision algorithms to detect, track and predict basketball
 Anand Kapadia and Gaurav Lahiry
 
 ## Summary
-We plan to make a basketball shot tracking app that analyzes the arc of your basketball shot in real time, and makes a prediction on whether or not it will go in. Additionally, it will measure the angle at which the ball goes through the hoop, providing the user with feedback (ideal shot arc angle vs distance to hoop) to help you obtain the perfect swish.
+We plan to make a basketball shot tracking app that analyzes the arc of your basketball shot in real time, and makes a prediction on whether or not it will go in. Additionally, it will measure the angle at which the ball goes into the hoop, providing the user with feedback (ideal shot arc angle vs distance to hoop) to help you obtain the perfect swish.
 
 ## Background
 We will implement our app using Inverse Compositional Lucas Kanade, Kinematics, Least Squares Estimation, and Homographies. Inverse LK would be an optimal algorithm to track optical flow so we could follow the path of the basketball as it is shot. We would use a well chosen template image that we could sample beforehand and use it to exhaustively search from an area sufficiently near the expected ‘event horizon’.
