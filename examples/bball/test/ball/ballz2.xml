@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<?xml-stylesheet type='text/xsl' href='image_metadata_stylesheet.xsl'?>
+<dataset>
+<name>imglab dataset</name>
+<comment>Created by imglab tool.</comment>
+<images>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000000.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000001.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000002.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000003.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000004.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000005.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000006.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000007.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000008.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000009.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000010.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000011.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000012.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000013.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000014.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000015.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000016.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000017.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000018.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000019.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000020.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000021.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000022.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000023.jpg'>
+    </image>
+    <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/ball/frame-000024.jpg'>
+    </image>
+ </images>
+</dataset>
