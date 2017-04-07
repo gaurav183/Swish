@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<?xml-stylesheet type='text/xsl' href='image_metadata_stylesheet.xsl'?>
+<dataset>
+<name>imglab dataset</name>
+<comment>Created by imglab tool.</comment>
+<images>
+  <image file='/Users/akhome/Downloads/dlib-19.4/examples/bball/ball_1.jpg'>
+    <box top='120' left='72' width='77' height='72'>
+      <label>ball</label>
+    </box>
+    <box top='137' left='239' width='58' height='55'>
+      <label>ball</label>
+    </box>
+    <box top='204' left='453' width='52' height='51'>
+      <label>ball</label>
+    </box>
+    <box top='255' left='511' width='40' height='43'>
+      <label>ball</label>
+    </box>
+    <box top='285' left='313' width='53' height='51'>
+      <label>ball</label>
+    </box>
+    <box top='258' left='169' width='72' height='66'>
+      <label>ball</label>
+    </box>
+    <box top='322' left='223' width='61' height='61'>
+      <label>ball</label>
+    </box>
+  </image>
+  <image file='/Users/akhome/Downloads/dlib-19.4/examples/bball/ball_2.jpg'>
+  </image>
+  <image file='/Users/akhome/Downloads/dlib-19.4/examples/bball/ball_3.jpg'>
+  </image>
+  <image file='/Users/akhome/Downloads/dlib-19.4/examples/bball/ball_4.jpg'>
+  </image>
+  <image file='/Users/akhome/Downloads/dlib-19.4/examples/bball/ball_5.jpg'>
+  </image>
+  <image file='/Users/akhome/Downloads/dlib-19.4/examples/bball/ball_6.jpg'>
+  </image>
+</images>
+</dataset>

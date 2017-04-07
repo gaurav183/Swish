@@ -1,0 +1,14 @@
+/Users/akhome/Downloads/dlib-19.4/tools/imglab/build/CMakeFiles/install/local.dir
+/Users/akhome/Downloads/dlib-19.4/tools/imglab/build/CMakeFiles/install/strip.dir
+/Users/akhome/Downloads/dlib-19.4/tools/imglab/build/CMakeFiles/install.dir
+/Users/akhome/Downloads/dlib-19.4/tools/imglab/build/CMakeFiles/list_install_components.dir
+/Users/akhome/Downloads/dlib-19.4/tools/imglab/build/CMakeFiles/rebuild_cache.dir
+/Users/akhome/Downloads/dlib-19.4/tools/imglab/build/CMakeFiles/edit_cache.dir
+/Users/akhome/Downloads/dlib-19.4/tools/imglab/build/CMakeFiles/imglab.dir
+/Users/akhome/Downloads/dlib-19.4/tools/imglab/build/dlib_build/CMakeFiles/install/local.dir
+/Users/akhome/Downloads/dlib-19.4/tools/imglab/build/dlib_build/CMakeFiles/install/strip.dir
+/Users/akhome/Downloads/dlib-19.4/tools/imglab/build/dlib_build/CMakeFiles/install.dir
+/Users/akhome/Downloads/dlib-19.4/tools/imglab/build/dlib_build/CMakeFiles/list_install_components.dir
+/Users/akhome/Downloads/dlib-19.4/tools/imglab/build/dlib_build/CMakeFiles/rebuild_cache.dir
+/Users/akhome/Downloads/dlib-19.4/tools/imglab/build/dlib_build/CMakeFiles/edit_cache.dir
+/Users/akhome/Downloads/dlib-19.4/tools/imglab/build/dlib_build/CMakeFiles/dlib.dir
