@@ -178,7 +178,7 @@ int main(int argc, char** argv)
             win.clear_overlay();
             win.set_image(images_test[i]);
             win.add_overlay(dets, rgb_pixel(255,0,0));
-            cout << "Hit enter to process the next image..." << endl;
+            // cout << "Hit enter to process the next image..." << endl;
             //usleep(1000 * 1);
             //cin.get();
         }

@@ -4,7 +4,7 @@
 <name>imglab dataset</name>
 <comment>Created by imglab tool.</comment>
 <images>
-  <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/ball_1.jpg'>
+  <image file='ball_1.jpg'>
     <box top='120' left='72' width='77' height='72'>
       <label>ball</label>
     </box>
@@ -27,7 +27,7 @@
       <label>ball</label>
     </box>
   </image>
-  <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/ball_2.jpg'>
+  <image file='ball_2.jpg'>
     <box top='277' left='94' width='43' height='43'>
       <label>ball</label>
     </box>
@@ -35,7 +35,7 @@
       <label>ball</label>
     </box>
   </image>
-  <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/ball_3.jpg'>
+  <image file='ball_3.jpg'>
     <box top='77' left='38' width='30' height='28'>
       <label>ball</label>
     </box>
@@ -67,7 +67,7 @@
       <label>ball</label>
     </box>
   </image>
-  <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/ball_4.jpg'>
+  <image file='ball_4.jpg'>
     <box top='186' left='223' width='15' height='16'>
       <label>ball</label>
     </box>
@@ -144,7 +144,7 @@
       <label>ball</label>
     </box>
   </image>
-  <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/ball_5.jpg'>
+  <image file='ball_5.jpg'>
       <box top='84' left='337' width='19' height='17'>
           <label>ball</label>
       </box>
@@ -167,7 +167,7 @@
           <label>ball</label>
       </box>
   </image>
-  <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/ball_6.jpg'>
+  <image file='ball_6.jpg'>
       <box top='529' left='564' width='32' height='32'>
           <label>ball</label>
       </box>
