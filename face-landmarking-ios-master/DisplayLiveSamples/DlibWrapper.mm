@@ -104,21 +104,41 @@
         }
     }*/
     
+    // Try this downsampling if the resizing doesn't work
+    /*
+    dlib::array2d<dlib::bgr_pixel> img_down;
+    unsigned long downsample = 4.0;
+    img_down.set_size((img.nr()+downsample-1)/downsample,
+                     (img.nc()+downsample-1)/downsample);
     
+    for (long r = 0; r < img_down.nr(); ++r)
+    {
+        for (long c = 0; c < img_down.nc(); ++c)
+        {
+            img_down[r][c] = img[r*downsample][c*downsample];
+        }
+    }
+    */
+    
+    // can also try grayscale img using unsigned char instead of bgr_pixel
+    /*
+    dlib::array2d<unsigned char> img_gray;
+    dlib::assign_image(img_gray, img);
+    sp(img_gray);
+    */
+    
+    img.set_size(height/4, width/4);
+    
+    // Run the detector and get the bball detections.
     // not sure what all the diddropsamplebuffer shit is...
     // this line makes everything VERY SLOWWWWWW...
     std::vector<dlib::rectangle> dets = sp(img);
     
     for (unsigned long i = 0; i < dets.size(); ++i) {
-        // Run the detector and get the face detections.
-        // rects[i] is nsvalue* and convertedRectangles[i] is rectangle, but sp() wants array2d
-        // std::vector<dlib::rectangle> dets = sp(img);
-
-        //for (unsigned long j = 0; j < dets.size(); j++) {
         draw_rectangle(img, dets[i], dlib::rgb_pixel(255,0,0));
-        //}
     }
-     
+    
+    img.set_size(height, width);
     
     // lets put everything back where it belongs
     CVPixelBufferLockBaseAddress(imageBuffer, 0);
