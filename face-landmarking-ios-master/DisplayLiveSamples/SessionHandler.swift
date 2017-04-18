@@ -25,7 +25,7 @@ class SessionHandler : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, A
     func openSession() {
         let device = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo)
             .map { $0 as! AVCaptureDevice }
-            .filter { $0.position == .front}
+            .filter { $0.position == .back}
             .first!
         
         let input = try! AVCaptureDeviceInput(device: device)
@@ -70,14 +70,14 @@ class SessionHandler : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, A
         
         /*
         if !currentMetadata.isEmpty {
-            let boundsArray = currentMetadata
+            /* let boundsArray = currentMetadata
                 .flatMap { $0 as? AVMetadataFaceObject }
                 .map { (faceObject) -> NSValue in
                     let convertedObject = captureOutput.transformedMetadataObject(for: faceObject, connection: connection)
                     return NSValue(cgRect: convertedObject!.bounds)
             }
-            
-            wrapper?.doWork(on: sampleBuffer, inRects: boundsArray)
+            */
+            wrapper?.doWork(on: sampleBuffer);//, inRects: boundsArray)
         }
         */
 

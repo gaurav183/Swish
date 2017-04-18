@@ -16,7 +16,7 @@
 
 @property (assign) BOOL prepared;
 
-+ (std::vector<dlib::rectangle>)convertCGRectValueArray:(NSArray<NSValue *> *)rects;
+// + (std::vector<dlib::rectangle>)convertCGRectValueArray:(NSArray<NSValue *> *)rects;
 
 @end
 @implementation DlibWrapper {
@@ -49,7 +49,6 @@
     if (!self.prepared) {
         [self prepare];
     }
-    
     
     dlib::array2d<dlib::bgr_pixel> img;
     
@@ -105,9 +104,9 @@
         }
     }*/
     
+    
     // not sure what all the diddropsamplebuffer shit is...
-    // is there something to do with face rec in the session handler - dispactch queue??
-    // test on real bball bruh
+    // this line makes everything VERY SLOWWWWWW...
     std::vector<dlib::rectangle> dets = sp(img);
     
     for (unsigned long i = 0; i < dets.size(); ++i) {
@@ -119,6 +118,7 @@
         draw_rectangle(img, dets[i], dlib::rgb_pixel(255,0,0));
         //}
     }
+     
     
     // lets put everything back where it belongs
     CVPixelBufferLockBaseAddress(imageBuffer, 0);
@@ -142,6 +142,7 @@
     CVPixelBufferUnlockBaseAddress(imageBuffer, 0);
 }
 
+/*
 + (std::vector<dlib::rectangle>)convertCGRectValueArray:(NSArray<NSValue *> *)rects {
     std::vector<dlib::rectangle> myConvertedRects;
     for (NSValue *rectValue in rects) {
@@ -156,5 +157,6 @@
     }
     return myConvertedRects;
 }
+*/
 
 @end
