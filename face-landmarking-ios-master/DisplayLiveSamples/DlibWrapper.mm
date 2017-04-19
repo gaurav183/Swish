@@ -105,9 +105,9 @@
     }*/
     
     // Try this downsampling if the resizing doesn't work
-    /*
+    
     dlib::array2d<dlib::bgr_pixel> img_down;
-    unsigned long downsample = 4.0;
+    unsigned long downsample = 3.0;
     img_down.set_size((img.nr()+downsample-1)/downsample,
                      (img.nc()+downsample-1)/downsample);
     
@@ -118,27 +118,41 @@
             img_down[r][c] = img[r*downsample][c*downsample];
         }
     }
-    */
+    
     
     // can also try grayscale img using unsigned char instead of bgr_pixel
     /*
     dlib::array2d<unsigned char> img_gray;
     dlib::assign_image(img_gray, img);
-    sp(img_gray);
     */
     
-    img.set_size(height/4, width/4);
     
     // Run the detector and get the bball detections.
     // not sure what all the diddropsamplebuffer shit is...
     // this line makes everything VERY SLOWWWWWW...
-    std::vector<dlib::rectangle> dets = sp(img);
+    // std::vector<dlib::rectangle> dets = sp(img);
+    std::vector<dlib::rectangle> dets = sp(img_down);
     
+    
+    /*
     for (unsigned long i = 0; i < dets.size(); ++i) {
         draw_rectangle(img, dets[i], dlib::rgb_pixel(255,0,0));
     }
+    */
     
-    img.set_size(height, width);
+    if (dets.size()) {
+        std::vector<std::vector<dlib::rectangle>> dets_vec;
+        dets_vec.push_back(dets);
+        dlib::array<dlib::array2d<dlib::bgr_pixel>> img_arr;
+        img_arr.push_back(img_down);
+        // should be upsampling by factor of 3 but rect position is off
+        dlib::upsample_image_dataset<dlib::pyramid_down<3>> (img_arr, dets_vec);
+        
+        for (unsigned long i = 0; i < dets_vec[0].size(); ++i) {
+            draw_rectangle(img, dets_vec[0][i], dlib::rgb_pixel(255,0,0));
+        }
+    }
+    
     
     // lets put everything back where it belongs
     CVPixelBufferLockBaseAddress(imageBuffer, 0);
