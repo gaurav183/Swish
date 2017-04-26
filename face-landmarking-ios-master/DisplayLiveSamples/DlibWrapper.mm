@@ -9,8 +9,23 @@
 #import "DlibWrapper.h"
 #import <UIKit/UIKit.h>
 
+#ifdef __cplusplus
+
 #include <dlib/image_processing.h>
 #include <dlib/image_io.h>
+#include "opencv2/features2d/features2d.hpp"
+#include "opencv2/nonfree/features2d.hpp"
+#include <opencv2/opencv.hpp> // Includes the opencv library
+#include <stdlib.h> // Include the standard library
+#include "armadillo" // Includes the armadillo library
+#include "myfit.h"
+#endif
+
+
+using namespace std;
+
+#define PT_SIZE (20)
+
 
 @interface DlibWrapper ()
 
@@ -19,9 +34,19 @@
 // + (std::vector<dlib::rectangle>)convertCGRectValueArray:(NSArray<NSValue *> *)rects;
 
 @end
+
+
 @implementation DlibWrapper {
     //dlib::shape_predictor sp;
     dlib::object_detector<dlib::scan_fhog_pyramid<dlib::pyramid_down<6>>> sp;
+    
+    dlib::dpoint pt_array[PT_SIZE];
+    int pt_idx = 0;
+    
+    arma::fmat A;
+    arma::fmat b;
+    arma::fmat x;
+    arma::fmat y;
 }
 
 
@@ -32,6 +57,8 @@
     }
     return self;
 }
+
+
 
 - (void)prepare {
     //NSString *modelFileName = [[NSBundle mainBundle] pathForResource:@"shape_predictor_68_face_landmarks" ofType:@"dat"];
@@ -86,73 +113,53 @@
     // unlock buffer again until we need it again
     CVPixelBufferUnlockBaseAddress(imageBuffer, kCVPixelBufferLock_ReadOnly);
     
-    // convert the face bounds list to dlib format
-    // std::vector<dlib::rectangle> convertedRectangles = [DlibWrapper convertCGRectValueArray:rects];
-    
-    // for every detected face
-    /*for (unsigned long j = 0; j < convertedRectangles.size(); ++j)
-    {
-        dlib::rectangle oneFaceRect = convertedRectangles[j];
-        
-        // detect all landmarks
-        dlib::full_object_detection shape = sp(img, oneFaceRect);
-        
-        // and draw them into the image (samplebuffer)
-        for (unsigned long k = 0; k < shape.num_parts(); k++) {
-            dlib::point p = shape.part(k);
-            draw_solid_circle(img, p, 3, dlib::rgb_pixel(0, 255, 255));
-        }
-    }*/
-    
-    // Try this downsampling if the resizing doesn't work
-    
-    dlib::array2d<dlib::bgr_pixel> img_down;
-    unsigned long downsample = 3.0;
-    img_down.set_size((img.nr()+downsample-1)/downsample,
-                     (img.nc()+downsample-1)/downsample);
-    
-    for (long r = 0; r < img_down.nr(); ++r)
-    {
-        for (long c = 0; c < img_down.nc(); ++c)
-        {
-            img_down[r][c] = img[r*downsample][c*downsample];
-        }
-    }
-    
-    
     // can also try grayscale img using unsigned char instead of bgr_pixel
-    /*
     dlib::array2d<unsigned char> img_gray;
     dlib::assign_image(img_gray, img);
-    */
+    
     
     
     // Run the detector and get the bball detections.
     // not sure what all the diddropsamplebuffer shit is...
     // this line makes everything VERY SLOWWWWWW...
-    // std::vector<dlib::rectangle> dets = sp(img);
-    std::vector<dlib::rectangle> dets = sp(img_down);
+    std::vector<dlib::rectangle> dets = sp(img);
+    //std::vector<dlib::rectangle> dets = sp(img_down);
     
     
-    /*
+    
     for (unsigned long i = 0; i < dets.size(); ++i) {
         draw_rectangle(img, dets[i], dlib::rgb_pixel(255,0,0));
-    }
-    */
-    
-    if (dets.size()) {
-        std::vector<std::vector<dlib::rectangle>> dets_vec;
-        dets_vec.push_back(dets);
-        dlib::array<dlib::array2d<dlib::bgr_pixel>> img_arr;
-        img_arr.push_back(img_down);
-        // should be upsampling by factor of 3 but rect position is off
-        dlib::upsample_image_dataset<dlib::pyramid_down<3>> (img_arr, dets_vec);
+        int center_x = (dets[i].left() + dets[i].right()) / 2;
+        int center_y = (dets[i].top() + dets[i].bottom()) / 2;
+        dlib::dpoint center_pt = dlib::dpoint(center_x, center_y);
         
-        for (unsigned long i = 0; i < dets_vec[0].size(); ++i) {
-            draw_rectangle(img, dets_vec[0][i], dlib::rgb_pixel(255,0,0));
+        
+        A << center_x^2 << center_x << 1 << arma::endr;
+        b << center_y << arma::endr;
+        
+        pt_array[pt_idx] = center_pt;
+        pt_idx++;
+        if(pt_idx == PT_SIZE){
+            pt_idx = 0;
         }
     }
     
+    x = inv(trans(A) * A) * trans(A);
+    
+    cout << A << endl;
+    cout << b << endl;
+    cout << x << endl;
+    
+    
+    for(int i = 0; i < PT_SIZE; i++){
+        draw_solid_circle(img, pt_array[i], 2, dlib::rgb_pixel(100,100,100));
+    }
+    
+    
+    for(int i = 0; i < 640; i++){
+        dlib::dpoint parabola = dlib::dpoint(i, x(0)*i^2 + x(1)*i + x(2));
+        draw_solid_circle(img, parabola, 1, dlib::rgb_pixel(30,30,30));
+    }
     
     // lets put everything back where it belongs
     CVPixelBufferLockBaseAddress(imageBuffer, 0);
@@ -175,22 +182,5 @@
     }
     CVPixelBufferUnlockBaseAddress(imageBuffer, 0);
 }
-
-/*
-+ (std::vector<dlib::rectangle>)convertCGRectValueArray:(NSArray<NSValue *> *)rects {
-    std::vector<dlib::rectangle> myConvertedRects;
-    for (NSValue *rectValue in rects) {
-        CGRect rect = [rectValue CGRectValue];
-        long left = rect.origin.x;
-        long top = rect.origin.y;
-        long right = left + rect.size.width;
-        long bottom = top + rect.size.height;
-        dlib::rectangle dlibRect(left, top, right, bottom);
-
-        myConvertedRects.push_back(dlibRect);
-    }
-    return myConvertedRects;
-}
-*/
 
 @end

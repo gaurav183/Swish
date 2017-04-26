@@ -16,7 +16,8 @@ class SessionHandler : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, A
     let wrapper = DlibWrapper()
     
     var currentMetadata: [AnyObject]
-    
+
+ 
     override init() {
         currentMetadata = []
         super.init()
@@ -29,6 +30,9 @@ class SessionHandler : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, A
             .first!
         
         let input = try! AVCaptureDeviceInput(device: device)
+        
+        session.sessionPreset = AVCaptureSessionPreset640x480
+
         
         let output = AVCaptureVideoDataOutput()
         output.setSampleBufferDelegate(self, queue: sampleQueue)
