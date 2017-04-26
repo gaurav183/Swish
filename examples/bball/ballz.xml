@@ -190,6 +190,26 @@
           <label>ball</label>
       </box>
   </image>
+  <image file='frame-000503.jpg'>
+    <box top='320' left='146' width='21' height='21'>
+        <label>ball</label>
+    </box>
+  </image>
+  <image file='IMG_0910.PNG'>
+    <box top='568' left='89' width='27' height='26'>
+        <label>ball</label>
+    </box>
+  </image>
+  <image file='IMG_0911.PNG'>
+    <box top='509' left='512' width='26' height='26'>
+        <label>ball</label>
+    </box>
+  </image>
+  <image file='IMG_0912.PNG'>
+    <box top='636' left='524' width='27' height='27'>
+        <label>ball</label>
+    </box>
+  </image>
 
 </images>
 </dataset>
