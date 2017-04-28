@@ -13,12 +13,6 @@
 
 #include <dlib/image_processing.h>
 #include <dlib/image_io.h>
-#include "opencv2/features2d/features2d.hpp"
-#include "opencv2/nonfree/features2d.hpp"
-#include <opencv2/opencv.hpp> // Includes the opencv library
-#include <stdlib.h> // Include the standard library
-#include "armadillo" // Includes the armadillo library
-#include "myfit.h"
 #endif
 
 
@@ -31,6 +25,8 @@ using namespace std;
 
 @property (assign) BOOL prepared;
 
+@property (assign) BOOL hoopDone;
+
 // + (std::vector<dlib::rectangle>)convertCGRectValueArray:(NSArray<NSValue *> *)rects;
 
 @end
@@ -40,13 +36,13 @@ using namespace std;
     //dlib::shape_predictor sp;
     dlib::object_detector<dlib::scan_fhog_pyramid<dlib::pyramid_down<6>>> sp;
     
-    dlib::dpoint pt_array[PT_SIZE];
-    int pt_idx = 0;
+    dlib::object_detector<dlib::scan_fhog_pyramid<dlib::pyramid_down<6>>> sp2;
     
-    arma::fmat A;
-    arma::fmat b;
-    arma::fmat x;
-    arma::fmat y;
+    dlib::dpoint pt_array[PT_SIZE];    
+    //arma::fmat A;face_detector.svm
+    //arma::fmat b;
+    //arma::fmat x;
+    //arma::fmat y;
 }
 
 
@@ -54,18 +50,24 @@ using namespace std;
     self = [super init];
     if (self) {
         _prepared = NO;
+        _hoopDone = NO;
     }
     return self;
 }
 
-
+int pt_idx = 0;
 
 - (void)prepare {
     //NSString *modelFileName = [[NSBundle mainBundle] pathForResource:@"shape_predictor_68_face_landmarks" ofType:@"dat"];
-    NSString *modelFileName = [[NSBundle mainBundle] pathForResource:@"bball_detector" ofType:@"svm"];
+    NSString *modelFileName = [[NSBundle mainBundle] pathForResource:@"ball_detector_5" ofType:@"svm"];
     std::string modelFileNameCString = [modelFileName UTF8String];
     
     dlib::deserialize(modelFileNameCString) >> sp;
+    
+    NSString *modelFileName2 = [[NSBundle mainBundle] pathForResource:@"hoop_detector" ofType:@"svm"];
+    std::string modelFileNameCString2 = [modelFileName2 UTF8String];
+    
+    dlib::deserialize(modelFileNameCString2) >> sp2;
     
     // FIXME: test this stuff for memory leaks (cpp object destruction)
     self.prepared = YES;
@@ -89,7 +91,7 @@ using namespace std;
     
     // set_size expects rows, cols format
     img.set_size(height, width);
-    
+     
     // copy samplebuffer image data into dlib image format
     img.reset();
     long position = 0;
@@ -112,20 +114,31 @@ using namespace std;
     
     // unlock buffer again until we need it again
     CVPixelBufferUnlockBaseAddress(imageBuffer, kCVPixelBufferLock_ReadOnly);
+
     
     // can also try grayscale img using unsigned char instead of bgr_pixel
-    dlib::array2d<unsigned char> img_gray;
-    dlib::assign_image(img_gray, img);
+    //dlib::array2d<unsigned char> img_gray;
+    //dlib::assign_image(img_gray, img);
     
     
     
     // Run the detector and get the bball detections.
     // not sure what all the diddropsamplebuffer shit is...
     // this line makes everything VERY SLOWWWWWW...
-    std::vector<dlib::rectangle> dets = sp(img);
+    //std::vector<dlib::rectangle> dets = sp(img);
+    if (!self.hoopDone){
+        std::vector<dlib::rectangle> dets2 = sp2(img);
+        for (unsigned long i = 0; i < dets2.size(); ++i) {
+            draw_rectangle(img, dets2[i], dlib::rgb_pixel(0,255,0));
+        }
+        self.hoopDone = YES;
+    }
     //std::vector<dlib::rectangle> dets = sp(img_down);
     
     
+    
+    
+     /*
     
     for (unsigned long i = 0; i < dets.size(); ++i) {
         draw_rectangle(img, dets[i], dlib::rgb_pixel(255,0,0));
@@ -134,8 +147,8 @@ using namespace std;
         dlib::dpoint center_pt = dlib::dpoint(center_x, center_y);
         
         
-        A << center_x^2 << center_x << 1 << arma::endr;
-        b << center_y << arma::endr;
+        //A << center_x^2 << center_x << 1 << arma::endr;
+        //b << center_y << arma::endr;
         
         pt_array[pt_idx] = center_pt;
         pt_idx++;
@@ -144,22 +157,22 @@ using namespace std;
         }
     }
     
-    x = inv(trans(A) * A) * trans(A);
+    //x = inv(trans(A) * A) * trans(A);
     
-    cout << A << endl;
-    cout << b << endl;
-    cout << x << endl;
+    //cout << A << endl;
+    //cout << b << endl;
+    //cout << x << endl;
     
     
     for(int i = 0; i < PT_SIZE; i++){
-        draw_solid_circle(img, pt_array[i], 2, dlib::rgb_pixel(100,100,100));
+        draw_solid_circle(img, pt_array[i], 5, dlib::rgb_pixel(100,100,100));
     }
     
-    
-    for(int i = 0; i < 640; i++){
-        dlib::dpoint parabola = dlib::dpoint(i, x(0)*i^2 + x(1)*i + x(2));
-        draw_solid_circle(img, parabola, 1, dlib::rgb_pixel(30,30,30));
-    }
+    */
+    //for(int i = 0; i < 640; i++){
+        //dlib::dpoint parabola = dlib::dpoint(i, x(0)*i^2 + x(1)*i + x(2));
+        //draw_solid_circle(img, parabola, 1, dlib::rgb_pixel(30,30,30));
+    //}
     
     // lets put everything back where it belongs
     CVPixelBufferLockBaseAddress(imageBuffer, 0);

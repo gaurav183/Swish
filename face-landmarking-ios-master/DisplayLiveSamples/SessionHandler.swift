@@ -31,8 +31,8 @@ class SessionHandler : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, A
         
         let input = try! AVCaptureDeviceInput(device: device)
         
-        session.sessionPreset = AVCaptureSessionPreset640x480
-
+        session.sessionPreset = AVCaptureSessionPreset1280x720
+        
         
         let output = AVCaptureVideoDataOutput()
         output.setSampleBufferDelegate(self, queue: sampleQueue)
@@ -69,7 +69,7 @@ class SessionHandler : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, A
     // MARK: AVCaptureVideoDataOutputSampleBufferDelegate
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
         
-        
+        connection.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
         wrapper?.doWork(on: sampleBuffer)
         
         /*

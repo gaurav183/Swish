@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		785E60841EA44ADD00A73C6B /* bball_detector.svm in Resources */ = {isa = PBXBuildFile; fileRef = 785E60831EA44ADD00A73C6B /* bball_detector.svm */; };
-		9219099F1EB0372100BC26EE /* armadillo in Resources */ = {isa = PBXBuildFile; fileRef = 9219099D1EB0372100BC26EE /* armadillo */; };
-		921909A01EB0372100BC26EE /* armadillo_bits in Resources */ = {isa = PBXBuildFile; fileRef = 9219099E1EB0372100BC26EE /* armadillo_bits */; };
+		785E60841EA44ADD00A73C6B /* ball_detector.svm in Resources */ = {isa = PBXBuildFile; fileRef = 785E60831EA44ADD00A73C6B /* ball_detector.svm */; };
+		92044A1B1EB3BE1300F063CC /* ball_detector_10.svm in Resources */ = {isa = PBXBuildFile; fileRef = 92044A1A1EB3BE1300F063CC /* ball_detector_10.svm */; };
+		92044A1F1EB3C89A00F063CC /* hoop_detector.svm in Resources */ = {isa = PBXBuildFile; fileRef = 92044A1E1EB3C89A00F063CC /* hoop_detector.svm */; };
+		92044A211EB3CCBB00F063CC /* ball_detector_15.svm in Resources */ = {isa = PBXBuildFile; fileRef = 92044A201EB3CCBB00F063CC /* ball_detector_15.svm */; };
+		92044A231EB3E4D300F063CC /* ball_detector_30.svm in Resources */ = {isa = PBXBuildFile; fileRef = 92044A221EB3E4D300F063CC /* ball_detector_30.svm */; };
+		92044A251EB3E68300F063CC /* ball_detector_5.svm in Resources */ = {isa = PBXBuildFile; fileRef = 92044A241EB3E68300F063CC /* ball_detector_5.svm */; };
 		92191C0F1EB031AC00432788 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A1B2D51CEA41E200626AC5 /* Accelerate.framework */; };
 		92191C151EB0347A00432788 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92191C141EB0347A00432788 /* opencv2.framework */; };
 		A56695F01CE8B34B00BD7EAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56695EF1CE8B34B00BD7EAF /* AppDelegate.swift */; };
@@ -42,9 +45,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		785E60831EA44ADD00A73C6B /* bball_detector.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = bball_detector.svm; sourceTree = "<group>"; };
-		9219099D1EB0372100BC26EE /* armadillo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = armadillo; sourceTree = "<group>"; };
-		9219099E1EB0372100BC26EE /* armadillo_bits */ = {isa = PBXFileReference; lastKnownFileType = folder; path = armadillo_bits; sourceTree = "<group>"; };
+		785E60831EA44ADD00A73C6B /* ball_detector.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ball_detector.svm; sourceTree = "<group>"; };
+		92044A1A1EB3BE1300F063CC /* ball_detector_10.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ball_detector_10.svm; sourceTree = "<group>"; };
+		92044A1E1EB3C89A00F063CC /* hoop_detector.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = hoop_detector.svm; sourceTree = "<group>"; };
+		92044A201EB3CCBB00F063CC /* ball_detector_15.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ball_detector_15.svm; sourceTree = "<group>"; };
+		92044A221EB3E4D300F063CC /* ball_detector_30.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ball_detector_30.svm; sourceTree = "<group>"; };
+		92044A241EB3E68300F063CC /* ball_detector_5.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ball_detector_5.svm; sourceTree = "<group>"; };
 		92191C141EB0347A00432788 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		A56695EC1CE8B34B00BD7EAF /* DisplayLiveSamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DisplayLiveSamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A56695EF1CE8B34B00BD7EAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,7 +104,12 @@
 		A56695E31CE8B34B00BD7EAF = {
 			isa = PBXGroup;
 			children = (
-				785E60831EA44ADD00A73C6B /* bball_detector.svm */,
+				785E60831EA44ADD00A73C6B /* ball_detector.svm */,
+				92044A1E1EB3C89A00F063CC /* hoop_detector.svm */,
+				92044A201EB3CCBB00F063CC /* ball_detector_15.svm */,
+				92044A241EB3E68300F063CC /* ball_detector_5.svm */,
+				92044A221EB3E4D300F063CC /* ball_detector_30.svm */,
+				92044A1A1EB3BE1300F063CC /* ball_detector_10.svm */,
 				92191C141EB0347A00432788 /* opencv2.framework */,
 				A5A1B2D51CEA41E200626AC5 /* Accelerate.framework */,
 				A5A1B2D31CEA35B300626AC5 /* libdlib.a */,
@@ -122,8 +133,6 @@
 		A56695EE1CE8B34B00BD7EAF /* DisplayLiveSamples */ = {
 			isa = PBXGroup;
 			children = (
-				9219099D1EB0372100BC26EE /* armadillo */,
-				9219099E1EB0372100BC26EE /* armadillo_bits */,
 				A5A1B2D01CEA317B00626AC5 /* DlibWrapper.h */,
 				A5A1B2D11CEA317B00626AC5 /* DlibWrapper.mm */,
 				A56695EF1CE8B34B00BD7EAF /* AppDelegate.swift */,
@@ -264,12 +273,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				921909A01EB0372100BC26EE /* armadillo_bits in Resources */,
 				A56695FA1CE8B34B00BD7EAF /* LaunchScreen.storyboard in Resources */,
-				9219099F1EB0372100BC26EE /* armadillo in Resources */,
-				785E60841EA44ADD00A73C6B /* bball_detector.svm in Resources */,
+				92044A1B1EB3BE1300F063CC /* ball_detector_10.svm in Resources */,
+				785E60841EA44ADD00A73C6B /* ball_detector.svm in Resources */,
 				A56695F71CE8B34B00BD7EAF /* Assets.xcassets in Resources */,
 				A56695F51CE8B34B00BD7EAF /* Main.storyboard in Resources */,
+				92044A231EB3E4D300F063CC /* ball_detector_30.svm in Resources */,
+				92044A1F1EB3C89A00F063CC /* hoop_detector.svm in Resources */,
+				92044A251EB3E68300F063CC /* ball_detector_5.svm in Resources */,
+				92044A211EB3CCBB00F063CC /* ball_detector_15.svm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
