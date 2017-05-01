@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<?xml-stylesheet type='text/xsl' href='image_metadata_stylesheet.xsl'?>
+<dataset>
+<name>imglab dataset</name>
+<comment>Created by imglab tool.</comment>
+<images>
+  <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/IMG_0910.PNG'>
+  </image>
+  <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/IMG_0911.PNG'>
+  </image>
+  <image file='/Users/akhome/Desktop/Year3/16423/Swish/dlib-19.4/examples/bball/test/IMG_0912.PNG'>
+  </image>
+</images>
+</dataset>

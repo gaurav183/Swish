@@ -38,7 +38,9 @@ using namespace std;
     
     dlib::object_detector<dlib::scan_fhog_pyramid<dlib::pyramid_down<6>>> sp2;
     
-    dlib::dpoint pt_array[PT_SIZE];    
+    dlib::dpoint pt_array[PT_SIZE];
+    
+    std::vector<dlib::rectangle> hoopRect;
     //arma::fmat A;face_detector.svm
     //arma::fmat b;
     //arma::fmat x;
@@ -124,15 +126,22 @@ int pt_idx = 0;
     
     // Run the detector and get the bball detections.
     // not sure what all the diddropsamplebuffer shit is...
-    // this line makes everything VERY SLOWWWWWW...
     //std::vector<dlib::rectangle> dets = sp(img);
+    
+    //keep rectangle once detected
     if (!self.hoopDone){
         std::vector<dlib::rectangle> dets2 = sp2(img);
         for (unsigned long i = 0; i < dets2.size(); ++i) {
             draw_rectangle(img, dets2[i], dlib::rgb_pixel(0,255,0));
         }
         self.hoopDone = YES;
+        hoopRect = dets2;
+    } else {
+        for (unsigned long i = 0; i < hoopRect.size(); ++i) {
+            draw_rectangle(img, hoopRect[i], dlib::rgb_pixel(0,255,0));
+        }
     }
+    
     //std::vector<dlib::rectangle> dets = sp(img_down);
     
     

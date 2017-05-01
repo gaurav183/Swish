@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<?xml-stylesheet type='text/xsl' href='image_metadata_stylesheet.xsl'?>
+<dataset>
+<name>imglab dataset</name>
+<comment>Created by imglab tool.</comment>
+<images>
+  <image file='hoop1.jpg'>
+    <box top='171' left='262' width='321' height='344'>
+      <label>hoop</label>
+    </box>
+  </image>
+  <image file='hoop2.jpg'>
+    <box top='120' left='351' width='218' height='218'>
+      <label>hoop</label>
+    </box>
+  </image>
+  <image file='hoop3.jpg'>
+    <box top='784' left='2162' width='197' height='191'>
+      <label>hoop</label>
+    </box>
+  </image>
+  <image file='hoop4.jpg'>
+    <box top='616' left='861' width='2388' height='2542'>
+      <label>hoop</label>
+    </box>
+  </image>
+  <image file='hoop5.JPG'>
+    <box top='1032' left='1940' width='243' height='241'>
+      <label>hoop</label>
+    </box>
+  </image>
+  <image file='hoop6.JPG'>
+    <box top='722' left='2374' width='263' height='245'>
+      <label>hoop</label>
+    </box>
+  </image>
+  <image file='hoop7.JPG'>
+    <box top='874' left='2040' width='245' height='243'>
+      <label>hoop</label>
+    </box>
+  </image>
+</images>
+</dataset>
