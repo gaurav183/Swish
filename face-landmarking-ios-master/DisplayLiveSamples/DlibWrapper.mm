@@ -81,6 +81,7 @@ int r = 0;
 int w = 0;
 int h = 0;
 int optimize = 0;
+int bcount = 0;
 
 dlib::dpoint pt_array[PT_SIZE];
 
@@ -158,7 +159,7 @@ cv::Mat X;
     dlib::array2d<unsigned char> img_gray_small;
     dlib::assign_image(img_gray, img);
     dlib::assign_image(img_gray_2, img);
-    int offset = 300;
+    int offset = 150;
     dlib::rectangle roi;
     
     
@@ -167,77 +168,88 @@ cv::Mat X;
     }
     
     
-    
-    //THIS IS THE BASKETBALL TRACKING SECTION
     /*
-    if(optimize == 1){
-        roi.set_top(t - offset);
-        roi.set_bottom(b + offset);
-        roi.set_left(l - offset);
-        roi.set_right(r + offset);
-        //cout << "roi: "<< roi.top() << " "<< roi.bottom() << " "<< roi.left() << " "<< roi.right() << " " << endl;
-        dlib::extract_image_chip(img_gray, roi, img_gray_small);
-        dlib::assign_image(img_gray, img_gray_small);
-    }
-    
-    //cout << "optimized " << optimize << endl;
-    std::vector<dlib::rectangle> dets_ball = sp(img_gray);
-    //cv::Mat ball, ballg;
-
-    if(optimize == 1){
-        //cout << "optimized, this many rects" << dets_ball.size() << endl;
-        for(i = 0; i < dets_ball.size(); ++i){
-            dets_ball[i].set_top(dets_ball[i].top() + (t - offset));
-            dets_ball[i].set_bottom(dets_ball[i].bottom() + (t - offset));
-            dets_ball[i].set_left(dets_ball[i].left() + (l - offset));
-            dets_ball[i].set_right(dets_ball[i].right() + (l - offset));
-        }
-    }
-    
-    if(dets_ball.size() == 0){
-        optimize = 0;
-    }
-    
-    for ( i = 0; i < dets_ball.size(); ++i) {
-        draw_rectangle(img, dets_ball[i], dlib::rgb_pixel(255,30, 0));
-        int center_ball_x = (dets_ball[i].left() + dets_ball[i].right()) / 2;
-        int center_ball_y = (dets_ball[i].top() + dets_ball[i].bottom()) / 2;
-        dlib::dpoint center_pt = dlib::dpoint(center_ball_x, center_ball_y);
-        
-        pt_array[pt_idx] = center_pt;
-        A.at<float>(pt_idx, 0) = (float)center_ball_x * center_ball_x;
-        A.at<float>(pt_idx, 1) = (float)center_ball_x;
-        B.at<float>(pt_idx, 0) = (float)center_ball_y;
-        pt_idx++;
-        if(pt_idx == PT_SIZE){
-            pt_idx = 0;
+    //THIS IS THE BASKETBALL TRACKING SECTION
+    if(!found_temp){
+        if(optimize == 1){
+            roi.set_top(t - offset);
+            roi.set_bottom(b + offset);
+            roi.set_left(l - offset);
+            roi.set_right(r + offset);
+            //cout << "roi: "<< roi.top() << " "<< roi.bottom() << " "<< roi.left() << " "<< roi.right() << " " << endl;
+            dlib::extract_image_chip(img_gray, roi, img_gray_small);
+            dlib::assign_image(img_gray, img_gray_small);
         }
 
-        t = dets_ball[i].top();
-        b = dets_ball[i].bottom();
-        l = dets_ball[i].left();
-        r = dets_ball[i].right();
-        
-        //cout << "o: "<< t << " "<< b << " "<< l << " "<< r << " " << endl;
-        w = r - l;
-        h = b - t;
-        optimize = 1;
+        //cout << "optimized " << optimize << endl;
+        std::vector<dlib::rectangle> dets_ball = sp(img_gray);
+        //cv::Mat ball, ballg;
+
+        if(optimize == 1){
+            //cout << "optimized, this many rects" << dets_ball.size() << endl;
+            for(i = 0; i < dets_ball.size(); ++i){
+                dets_ball[i].set_top(dets_ball[i].top() + (t - offset));
+                dets_ball[i].set_bottom(dets_ball[i].bottom() + (t - offset));
+                dets_ball[i].set_left(dets_ball[i].left() + (l - offset));
+                dets_ball[i].set_right(dets_ball[i].right() + (l - offset));
+            }
+        }
+
+        if(optimize && dets_ball.size() == 0){
+            bcount++;
+            offset = 400;
+            if(bcount == 3){
+                offset = 150;
+                optimize = 0;
+                bcount = 0;
+            }
+            
+        }
+
+        for ( i = 0; i < dets_ball.size(); ++i) {
+            draw_rectangle(img, dets_ball[i], dlib::rgb_pixel(255,30, 0));
+            int center_ball_x = (dets_ball[i].left() + dets_ball[i].right()) / 2;
+            int center_ball_y = (dets_ball[i].top() + dets_ball[i].bottom()) / 2;
+            dlib::dpoint center_pt = dlib::dpoint(center_ball_x, center_ball_y);
+            
+            pt_array[pt_idx] = center_pt;
+            A.at<float>(pt_idx, 0) = (float)center_ball_x * center_ball_x;
+            A.at<float>(pt_idx, 1) = (float)center_ball_x;
+            B.at<float>(pt_idx, 0) = (float)center_ball_y;
+            pt_idx++;
+            if(pt_idx == PT_SIZE){
+                pt_idx = 0;
+            }
+
+            t = dets_ball[i].top();
+            b = dets_ball[i].bottom();
+            l = dets_ball[i].left();
+            r = dets_ball[i].right();
+            
+            //cout << "o: "<< t << " "<< b << " "<< l << " "<< r << " " << endl;
+            w = r - l;
+            h = b - t;
+            offset = 150;
+            bcount = 0;
+            optimize = 1;
+        }
+
+        X = (A.t() * A).inv() * A.t() * B;
+
+        for(int i = 0; i < PT_SIZE; i++){
+            
+            draw_solid_circle(img, pt_array[i], 5, dlib::rgb_pixel(255,150,0));
+        }
+
+        if(X.at<float>(0) > 0){
+            for(int i = 0; i < 1920; i+=10){
+                dlib::dpoint parabola = dlib::dpoint(i, (int)(X.at<float>(0)*i*i + X.at<float>(1)*i + X.at<float>(2)));
+                draw_solid_circle(img, parabola, 3, dlib::rgb_pixel(230,230,230));
+            }
+        }
+     
     }
-    
-    X = (A.t() * A).inv() * A.t() * B;
-    
-    for(int i = 0; i < PT_SIZE; i++){
-        
-        draw_solid_circle(img, pt_array[i], 5, dlib::rgb_pixel(255,150,0));
-    }
-    
-    for(int i = 0; i < 1920; i+=10){
-        dlib::dpoint parabola = dlib::dpoint(i, (int)(X.at<float>(0)*i*i + X.at<float>(1)*i + X.at<float>(2)));
-        draw_solid_circle(img, parabola, 3, dlib::rgb_pixel(230,230,230));
-    }
-     */
-    
-    
+    */
     
     //THIS IS THE HOOP TRACKING SECTION
     
@@ -245,7 +257,7 @@ cv::Mat X;
         // Run the detector and get the bball detections.
         // not sure what all the diddropsamplebuffer shit is...
         // this line makes everything VERY SLOWWWWWW...
-        std::vector<dlib::rectangle> dets = sp2(img_gray_2);
+        std::vector<dlib::rectangle> dets = sp(img_gray_2);
         std::vector<cv::Point2f> pointstemp;
 
         for ( i = 0; i < dets.size(); ++i) {
@@ -282,7 +294,7 @@ cv::Mat X;
         cv::Mat image_disp = dlib::toMat(img);
         std::vector<uchar> status;
         std::vector<float> err;
-        std::vector<cv::Point2f> points1;
+        std::vector<cv::Point2f> points1, pointstemp;
 
         cv::calcOpticalFlowPyrLK(temp_img, image, points0, points1, status, err, cv::Size(31, 31), 3, termcrit, 0, 0.001);
         int offset_bool = 1;
@@ -293,7 +305,6 @@ cv::Mat X;
         for(i = 0; i < points1.size(); i++)
         {
             if(status[i] == 1){
-                //if((points1[i].x > center_x-(temp_width/2)|| points1[i].x < center_x+(temp_width/2) || points1[i].y > center_y-(temp_height/2) || points1[i].y < center_y+(temp_height/2))){
                 if(offset_bool){
                     xoffset += points1[i].x - points0[i].x;
                     yoffset += points1[i].y - points0[i].y;
@@ -301,6 +312,7 @@ cv::Mat X;
                     
                     offset_bool = 0;
                 }
+                pointstemp.push_back(points1[i]);
                 //}
                 cv::circle( image_disp, points1[i], 3, cv::Scalar(0,255,0), -1, 8);
             }
@@ -319,9 +331,10 @@ cv::Mat X;
         }
         dlib::assign_image(img, dlib::cv_image<dlib::bgr_pixel>(image_disp));
 
-        points0 = points1;
+        points0 = pointstemp;
         temp_img = image.clone();
     }
+    
     
     
     
