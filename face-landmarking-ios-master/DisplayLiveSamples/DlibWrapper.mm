@@ -245,7 +245,7 @@ cv::Mat X;
         // Run the detector and get the bball detections.
         // not sure what all the diddropsamplebuffer shit is...
         // this line makes everything VERY SLOWWWWWW...
-        std::vector<dlib::rectangle> dets = sp(img_gray_2);
+        std::vector<dlib::rectangle> dets = sp2(img_gray_2);
         std::vector<cv::Point2f> pointstemp;
 
         for ( i = 0; i < dets.size(); ++i) {
