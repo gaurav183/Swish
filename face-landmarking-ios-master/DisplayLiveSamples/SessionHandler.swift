@@ -31,7 +31,8 @@ class SessionHandler : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, A
         
         let input = try! AVCaptureDeviceInput(device: device)
         
-        session.sessionPreset = AVCaptureSessionPreset1280x720
+        session.sessionPreset = AVCaptureSessionPreset1920x1080
+        
         
         
         let output = AVCaptureVideoDataOutput()

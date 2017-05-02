@@ -89,7 +89,7 @@ int main(int argc, char** argv)
         // with boxes.  To see how to use it read the tools/imglab/README.txt
         // file.
         load_image_dataset(images_train, face_boxes_train, faces_directory+"/training.xml");
-        load_image_dataset(images_test, face_boxes_test, faces_directory+"/training.xml");
+        load_image_dataset(images_test, face_boxes_test, faces_directory+"/../basketball/training.xml");
 
         // Now we do a little bit of pre-processing.  This is optional but for
         // this training data it improves the results.  The first thing we do is
@@ -119,7 +119,7 @@ int main(int argc, char** argv)
         // 5/6.  Recall that HOG detectors work by creating an image pyramid and
         // then running the detector over each pyramid level in a sliding window
         // fashion.   
-        typedef scan_fhog_pyramid<pyramid_down<6> > image_scanner_type; 
+        typedef scan_fhog_pyramid<pyramid_down<2> > image_scanner_type; 
         image_scanner_type scanner;
         // The sliding window detector will be 80 pixels wide and 80 pixels tall.
         scanner.set_detection_window_size(50, 50); 
@@ -132,8 +132,8 @@ int main(int argc, char** argv)
         // empirically by checking how well the trained detector works on a test set of
         // images you haven't trained on.  Don't just leave the value set at 1.  Try a few
         // different C values and see what works best for your data.
-        trainer.set_c(7);        
-        trainer.set_match_eps(.2);
+        trainer.set_c(9);       
+        trainer.set_match_eps(.48);
 
         // We can tell the trainer to print it's progress to the console if we want.  
         trainer.be_verbose();
