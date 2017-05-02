@@ -256,6 +256,7 @@ cv::Mat X;
         // Run the detector and get the hoop detection
         std::vector<dlib::rectangle> dets = sp2(img_gray_2);
         std::vector<cv::Point2f> pointstemp;
+    
 
         for ( i = 0; i < dets.size(); ++i) {
             draw_rectangle(img, dets[i], dlib::rgb_pixel(255,0,0));
