@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		785E60841EA44ADD00A73C6B /* ball_detector.svm in Resources */ = {isa = PBXBuildFile; fileRef = 785E60831EA44ADD00A73C6B /* ball_detector.svm */; };
-		78A962281EB82CAA00C51331 /* hoop_detector.svm in Resources */ = {isa = PBXBuildFile; fileRef = 78A962271EB82CAA00C51331 /* hoop_detector.svm */; };
+		78A9622A1EB852BB00C51331 /* hoop_detector.svm in Resources */ = {isa = PBXBuildFile; fileRef = 78A962291EB852BB00C51331 /* hoop_detector.svm */; };
 		92044A1B1EB3BE1300F063CC /* ball_detector_10.svm in Resources */ = {isa = PBXBuildFile; fileRef = 92044A1A1EB3BE1300F063CC /* ball_detector_10.svm */; };
 		92044A211EB3CCBB00F063CC /* ball_detector_15.svm in Resources */ = {isa = PBXBuildFile; fileRef = 92044A201EB3CCBB00F063CC /* ball_detector_15.svm */; };
 		92044A231EB3E4D300F063CC /* ball_detector_30.svm in Resources */ = {isa = PBXBuildFile; fileRef = 92044A221EB3E4D300F063CC /* ball_detector_30.svm */; };
@@ -47,7 +47,7 @@
 
 /* Begin PBXFileReference section */
 		785E60831EA44ADD00A73C6B /* ball_detector.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ball_detector.svm; sourceTree = "<group>"; };
-		78A962271EB82CAA00C51331 /* hoop_detector.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = hoop_detector.svm; sourceTree = "<group>"; };
+		78A962291EB852BB00C51331 /* hoop_detector.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = hoop_detector.svm; sourceTree = "<group>"; };
 		92044A1A1EB3BE1300F063CC /* ball_detector_10.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ball_detector_10.svm; sourceTree = "<group>"; };
 		92044A201EB3CCBB00F063CC /* ball_detector_15.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ball_detector_15.svm; sourceTree = "<group>"; };
 		92044A221EB3E4D300F063CC /* ball_detector_30.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ball_detector_30.svm; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 			children = (
 				785E60831EA44ADD00A73C6B /* ball_detector.svm */,
 				92044A201EB3CCBB00F063CC /* ball_detector_15.svm */,
-				78A962271EB82CAA00C51331 /* hoop_detector.svm */,
+				78A962291EB852BB00C51331 /* hoop_detector.svm */,
 				92FDA2411EB8004F00F4E32A /* face_detector.svm */,
 				92044A241EB3E68300F063CC /* ball_detector_5.svm */,
 				92044A221EB3E4D300F063CC /* ball_detector_30.svm */,
@@ -278,7 +278,7 @@
 			files = (
 				A56695FA1CE8B34B00BD7EAF /* LaunchScreen.storyboard in Resources */,
 				92044A1B1EB3BE1300F063CC /* ball_detector_10.svm in Resources */,
-				78A962281EB82CAA00C51331 /* hoop_detector.svm in Resources */,
+				78A9622A1EB852BB00C51331 /* hoop_detector.svm in Resources */,
 				785E60841EA44ADD00A73C6B /* ball_detector.svm in Resources */,
 				92FDA2421EB8004F00F4E32A /* face_detector.svm in Resources */,
 				A56695F71CE8B34B00BD7EAF /* Assets.xcassets in Resources */,
