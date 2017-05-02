@@ -41,7 +41,7 @@ using namespace std;
 
 
 @implementation DlibWrapper {
-    //dlib::shape_predictor sp;
+    // should this param be 2?
     dlib::object_detector<dlib::scan_fhog_pyramid<dlib::pyramid_down<6>>> sp;
     
     dlib::object_detector<dlib::scan_fhog_pyramid<dlib::pyramid_down<6>>> sp2;
@@ -90,7 +90,6 @@ cv::Mat B = cv::Mat::zeros(PT_SIZE, 1, CV_32F);
 cv::Mat X;
 
 - (void)prepare {
-    //NSString *modelFileName = [[NSBundle mainBundle] pathForResource:@"shape_predictor_68_face_landmarks" ofType:@"dat"];
     NSString *modelFileName = [[NSBundle mainBundle] pathForResource:@"face_detector" ofType:@"svm"];
     std::string modelFileNameCString = [modelFileName UTF8String];
     
@@ -254,18 +253,16 @@ cv::Mat X;
     //THIS IS THE HOOP TRACKING SECTION
     
     if(!found_temp) {
-        // Run the detector and get the bball detections.
-        // not sure what all the diddropsamplebuffer shit is...
-        // this line makes everything VERY SLOWWWWWW...
-        std::vector<dlib::rectangle> dets = sp(img_gray_2);
+        // Run the detector and get the hoop detection
+        std::vector<dlib::rectangle> dets = sp2(img_gray_2);
         std::vector<cv::Point2f> pointstemp;
 
         for ( i = 0; i < dets.size(); ++i) {
             draw_rectangle(img, dets[i], dlib::rgb_pixel(255,0,0));
             center_x = (dets[i].left() + dets[i].right()) / 2;
             center_y = (dets[i].top() + dets[i].bottom()) / 2;
-            temp_width    = (dets[i].right()  - dets[i].left());
-            temp_height   = (dets[i].bottom() - dets[i].top());
+            temp_width = (dets[i].right()  - dets[i].left());
+            temp_height = (dets[i].bottom() - dets[i].top());
             
             temp_img = dlib::toMat(img_gray_2);
             
@@ -334,9 +331,6 @@ cv::Mat X;
         points0 = pointstemp;
         temp_img = image.clone();
     }
-    
-    
-    
     
     
     
