@@ -74,6 +74,7 @@ int i, k;
 int center_x, center_y;
 int temp_width, temp_height;
 
+
 int t = 0;
 int b = 0;
 int l = 0;
@@ -82,12 +83,18 @@ int w = 0;
 int h = 0;
 int optimize = 0;
 int bcount = 0;
+int red = 0;
+int green = 0;
+int blue = 0;
+
 
 dlib::dpoint pt_array[PT_SIZE];
+
 
 cv::Mat A = cv::Mat::zeros(PT_SIZE, 3, CV_32F);
 cv::Mat B = cv::Mat::zeros(PT_SIZE, 1, CV_32F);
 cv::Mat X;
+
 
 - (void)prepare {
     //NSString *modelFileName = [[NSBundle mainBundle] pathForResource:@"shape_predictor_68_face_landmarks" ofType:@"dat"];
@@ -159,14 +166,129 @@ cv::Mat X;
     dlib::array2d<unsigned char> img_gray_small;
     dlib::assign_image(img_gray, img);
     dlib::assign_image(img_gray_2, img);
-    int offset = 150;
-    dlib::rectangle roi;
+    int offset = 100;
+    int range = 20;
+    int range2 = 50;
     
+    dlib::rectangle roi;
+    int center_ball_x = 0;
+    int center_ball_y = 0;
+    std::vector<dlib::rectangle> dets_ball;
     
     for(i = 0; i < PT_SIZE; i++){
         A.at<float>(i, 2) = 1.0;
     }
     
+    if(!found_temp){
+        if(optimize == 1){
+            
+            if(t < 0) t = 0;
+            if(l < 0) l = 0;
+            if(r >= 1920) r = 1919;
+            if(b >= 1080) b = 1079;
+            
+            int tempa, tempb, tempc, tempd;
+            tempa = l-offset;
+            if(tempa < 0) tempa = 0;
+            tempb = t - offset;
+            if(tempb < 0) tempb = 0;
+            tempc = tempa + (r-l) + (2*offset);
+            if(tempc >= 1920) tempc = 1919;
+            tempd = tempb + (b-t) + (2*offset);
+            if(tempc >= 1080) tempd = 1079;
+            cout << " t" << t << " b" << b << " l" << l << " r" << r << endl;
+            cout << " a" << tempa << " b" << tempb << " c" << tempc << " d" << tempd <<endl;
+            cv::Rect myROI(tempa, tempb, tempc-tempa, tempd-tempb);
+            cv::Rect temp(l+20, t+20, r-l-40, b-t-40);
+            cv::Mat image_orig = dlib::toMat(img);
+            cv::cvtColor(image_orig, image_orig, CV_BGR2HSV);
+            
+            cv::Mat image_box = image_orig.clone();
+            image_box = image_box(temp);
+            cout << (b-t)/2 << " -- " << (r-l)/2 << endl;
+            cv::Mat bgr[3];
+            cv::GaussianBlur(image_box, image_box, cv::Size(9, 9), 0, 0);
+
+            cv::split(image_box, bgr);
+            //int red = bgr[2].at<unsigned char> ((b-t)/2, (r-l)/2);
+            //int green=bgr[1].at<unsigned char> ((b-t)/2, (r-l)/2);
+            //int blue =bgr[0].at<unsigned char> ((b-t)/2, (r-l)/2);
+            if(bcount != 0){
+                red = cv::mean(bgr[2]).val[0];
+                green = cv::mean(bgr[1]).val[0];
+                blue = cv::mean(bgr[0]).val[0];
+            }
+            cout << "red " << red << "green " << green << "blue " << blue << endl;
+            cv::Mat image_roi = image_orig.clone();
+            image_roi = image_roi(myROI);
+            cv::GaussianBlur(image_roi, image_roi, cv::Size(9, 9), 0, 0);
+            cv::inRange(image_roi, cv::Scalar(blue - range, green-range2, red-range2), cv::Scalar(blue + range, green+range2, red + range2), image_roi);
+            cv::cvtColor(image_roi, image_roi, CV_GRAY2RGB);
+            cout << "roi chan:" << image_roi.channels() << " origchan: " << image_orig.channels() << endl;
+            image_roi.copyTo(image_orig(myROI));
+            dlib::assign_image(img, dlib::cv_image<dlib::bgr_pixel>(image_orig));
+            bcount = 0;
+        }
+        else{
+            //cout << "optimized " << optimize << endl;
+            dets_ball = sp(img_gray);
+            //cv::Mat ball, ballg;
+            if(dets_ball.size() == 0){
+                bcount = 0;
+                
+            }
+        }
+        
+        for ( i = 0; i < dets_ball.size(); ++i) {
+            if(optimize == 0){
+                draw_rectangle(img, dets_ball[i], dlib::rgb_pixel(255,30, 0));
+                center_ball_x = (dets_ball[i].left() + dets_ball[i].right()) / 2;
+                center_ball_y = (dets_ball[i].top() + dets_ball[i].bottom()) / 2;
+                t = dets_ball[i].top();
+                b = dets_ball[i].bottom();
+                l = dets_ball[i].left();
+                r = dets_ball[i].right();
+                bcount++;
+                if(bcount > 4){
+                    optimize = 1;
+                }
+            }
+            /*
+            dlib::dpoint center_pt = dlib::dpoint(center_ball_x, center_ball_y);
+            pt_array[pt_idx] = center_pt;
+            A.at<float>(pt_idx, 0) = (float)center_ball_x * center_ball_x;
+            A.at<float>(pt_idx, 1) = (float)center_ball_x;
+            B.at<float>(pt_idx, 0) = (float)center_ball_y;
+            pt_idx++;
+            if(pt_idx == PT_SIZE){
+                pt_idx = 0;
+            }
+            
+            //cout << "o: "<< t << " "<< b << " "<< l << " "<< r << " " << endl;
+            w = r - l;
+            h = b - t;
+            offset = 300;
+            bcount = 0;
+            optimize = 1;*/
+        }
+        
+        /*
+        X = (A.t() * A).inv() * A.t() * B;
+        
+        for(int i = 0; i < PT_SIZE; i++){
+            
+            draw_solid_circle(img, pt_array[i], 5, dlib::rgb_pixel(255,150,0));
+        }
+        
+        if(X.at<float>(0) > 0){
+            for(int i = 0; i < 1920; i+=10){
+                dlib::dpoint parabola = dlib::dpoint(i, (int)(X.at<float>(0)*i*i + X.at<float>(1)*i + X.at<float>(2)));
+                draw_solid_circle(img, parabola, 3, dlib::rgb_pixel(230,230,230));
+            }
+        }
+         */
+        
+    }
     
     /*
     //THIS IS THE BASKETBALL TRACKING SECTION
@@ -252,7 +374,7 @@ cv::Mat X;
     */
     
     //THIS IS THE HOOP TRACKING SECTION
-    
+    /*
     if(!found_temp) {
         // Run the detector and get the bball detections.
         // not sure what all the diddropsamplebuffer shit is...
@@ -313,10 +435,8 @@ cv::Mat X;
                     offset_bool = 0;
                 }
                 pointstemp.push_back(points1[i]);
-                //}
                 cv::circle( image_disp, points1[i], 3, cv::Scalar(0,255,0), -1, 8);
             }
-
         }
         if(offset_bool == 1){
             found_temp = 0;
@@ -334,7 +454,7 @@ cv::Mat X;
         points0 = pointstemp;
         temp_img = image.clone();
     }
-    
+    */
     
     
     
