@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		785E60841EA44ADD00A73C6B /* ball_detector.svm in Resources */ = {isa = PBXBuildFile; fileRef = 785E60831EA44ADD00A73C6B /* ball_detector.svm */; };
-		78A9622A1EB852BB00C51331 /* hoop_detector.svm in Resources */ = {isa = PBXBuildFile; fileRef = 78A962291EB852BB00C51331 /* hoop_detector.svm */; };
+		78A9622E1EB96A4000C51331 /* hoop_detector.svm in Resources */ = {isa = PBXBuildFile; fileRef = 78A9622D1EB96A4000C51331 /* hoop_detector.svm */; };
 		92044A1B1EB3BE1300F063CC /* ball_detector_10.svm in Resources */ = {isa = PBXBuildFile; fileRef = 92044A1A1EB3BE1300F063CC /* ball_detector_10.svm */; };
 		92044A211EB3CCBB00F063CC /* ball_detector_15.svm in Resources */ = {isa = PBXBuildFile; fileRef = 92044A201EB3CCBB00F063CC /* ball_detector_15.svm */; };
 		92044A231EB3E4D300F063CC /* ball_detector_30.svm in Resources */ = {isa = PBXBuildFile; fileRef = 92044A221EB3E4D300F063CC /* ball_detector_30.svm */; };
@@ -47,7 +47,7 @@
 
 /* Begin PBXFileReference section */
 		785E60831EA44ADD00A73C6B /* ball_detector.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ball_detector.svm; sourceTree = "<group>"; };
-		78A962291EB852BB00C51331 /* hoop_detector.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = hoop_detector.svm; sourceTree = "<group>"; };
+		78A9622D1EB96A4000C51331 /* hoop_detector.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = hoop_detector.svm; sourceTree = "<group>"; };
 		92044A1A1EB3BE1300F063CC /* ball_detector_10.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ball_detector_10.svm; sourceTree = "<group>"; };
 		92044A201EB3CCBB00F063CC /* ball_detector_15.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ball_detector_15.svm; sourceTree = "<group>"; };
 		92044A221EB3E4D300F063CC /* ball_detector_30.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ball_detector_30.svm; sourceTree = "<group>"; };
@@ -108,8 +108,8 @@
 			children = (
 				785E60831EA44ADD00A73C6B /* ball_detector.svm */,
 				92044A201EB3CCBB00F063CC /* ball_detector_15.svm */,
-				78A962291EB852BB00C51331 /* hoop_detector.svm */,
 				92FDA2411EB8004F00F4E32A /* face_detector.svm */,
+				78A9622D1EB96A4000C51331 /* hoop_detector.svm */,
 				92044A241EB3E68300F063CC /* ball_detector_5.svm */,
 				92044A221EB3E4D300F063CC /* ball_detector_30.svm */,
 				92044A1A1EB3BE1300F063CC /* ball_detector_10.svm */,
@@ -236,7 +236,7 @@
 				TargetAttributes = {
 					A56695EB1CE8B34B00BD7EAF = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 2C369GLP28;
+						DevelopmentTeam = 8BX48Q3UMW;
 						LastSwiftMigration = 0820;
 					};
 					A56695FF1CE8B34B00BD7EAF = {
@@ -278,7 +278,7 @@
 			files = (
 				A56695FA1CE8B34B00BD7EAF /* LaunchScreen.storyboard in Resources */,
 				92044A1B1EB3BE1300F063CC /* ball_detector_10.svm in Resources */,
-				78A9622A1EB852BB00C51331 /* hoop_detector.svm in Resources */,
+				78A9622E1EB96A4000C51331 /* hoop_detector.svm in Resources */,
 				785E60841EA44ADD00A73C6B /* ball_detector.svm in Resources */,
 				92FDA2421EB8004F00F4E32A /* face_detector.svm in Resources */,
 				A56695F71CE8B34B00BD7EAF /* Assets.xcassets in Resources */,
@@ -458,7 +458,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 2C369GLP28;
+				DEVELOPMENT_TEAM = 8BX48Q3UMW;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -478,7 +478,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/DisplayLiveSamples/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zweigraf.DisplayLiveSamples-gaurav0";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zweigraf.DisplayLiveSamples-gaurav-lah";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DisplayLiveSamples/DisplayLiveSamples-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -491,7 +491,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 2C369GLP28;
+				DEVELOPMENT_TEAM = 8BX48Q3UMW;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -511,7 +511,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/DisplayLiveSamples/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zweigraf.DisplayLiveSamples-gaurav0";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zweigraf.DisplayLiveSamples-gaurav-lah";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DisplayLiveSamples/DisplayLiveSamples-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

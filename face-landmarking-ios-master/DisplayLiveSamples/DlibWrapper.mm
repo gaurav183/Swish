@@ -166,6 +166,7 @@ cv::Mat X;
     dlib::assign_image(img_gray, img);
     dlib::assign_image(img_gray_2, img);
     int offset = 100;
+    
     int range = 20;
     int range2 = 50;
     
@@ -178,6 +179,7 @@ cv::Mat X;
         A.at<float>(i, 2) = 1.0;
     }
     
+    /*
     if(!found_temp){
         if(optimize == 1){
             
@@ -191,8 +193,10 @@ cv::Mat X;
             if(tempa < 0) tempa = 0;
             tempb = t - offset;
             if(tempb < 0) tempb = 0;
+            //r+offset
             tempc = tempa + (r-l) + (2*offset);
             if(tempc >= 1920) tempc = 1919;
+            //b+offset
             tempd = tempb + (b-t) + (2*offset);
             if(tempc >= 1080) tempd = 1079;
             cout << " t" << t << " b" << b << " l" << l << " r" << r << endl;
@@ -252,7 +256,7 @@ cv::Mat X;
                     optimize = 1;
                 }
             }
-            /*
+            //comment
             dlib::dpoint center_pt = dlib::dpoint(center_ball_x, center_ball_y);
             pt_array[pt_idx] = center_pt;
             A.at<float>(pt_idx, 0) = (float)center_ball_x * center_ball_x;
@@ -268,10 +272,11 @@ cv::Mat X;
             h = b - t;
             offset = 300;
             bcount = 0;
-            optimize = 1;*/
+            optimize = 1;
+            //comment
         }
         
-        /*
+        //comment
         X = (A.t() * A).inv() * A.t() * B;
         
         for(int i = 0; i < PT_SIZE; i++){
@@ -285,9 +290,9 @@ cv::Mat X;
                 draw_solid_circle(img, parabola, 3, dlib::rgb_pixel(230,230,230));
             }
         }
-         */
+        //comment
         
-    }
+    } */
     
     /*
     //THIS IS THE BASKETBALL TRACKING SECTION
@@ -298,12 +303,18 @@ cv::Mat X;
             roi.set_left(l - offset);
             roi.set_right(r + offset);
             //cout << "roi: "<< roi.top() << " "<< roi.bottom() << " "<< roi.left() << " "<< roi.right() << " " << endl;
+            
             dlib::extract_image_chip(img_gray, roi, img_gray_small);
+            //dlib::extract_image_chip(img, roi, img_gray_small);
+            
             dlib::assign_image(img_gray, img_gray_small);
+            //dlib::assign_image(img, img_gray_small);
         }
 
         //cout << "optimized " << optimize << endl;
+        
         std::vector<dlib::rectangle> dets_ball = sp(img_gray);
+        //std::vector<dlib::rectangle> dets_ball = sp(img);
         //cv::Mat ball, ballg;
 
         if(optimize == 1){
@@ -370,13 +381,17 @@ cv::Mat X;
         }
      
     }
-    */
+     */
+    
+    
     
     //THIS IS THE HOOP TRACKING SECTION
-    /*
+    
     if(!found_temp) {
         // Run the detector and get the hoop detection
+        
         std::vector<dlib::rectangle> dets = sp2(img_gray_2);
+        
         std::vector<cv::Point2f> pointstemp;
     
 
@@ -408,8 +423,7 @@ cv::Mat X;
                 found_temp = 1;
             }
         }
-    }
-    else {
+    } else {
         cv::Mat image = dlib::toMat(img_gray_2);
         cv::Mat image_disp = dlib::toMat(img);
         std::vector<uchar> status;
@@ -422,8 +436,7 @@ cv::Mat X;
         int yoffset = 0;
         int numoffset = 0;
         
-        for(i = 0; i < points1.size(); i++)
-        {
+        for(i = 0; i < points1.size(); i++) {
             if(status[i] == 1){
                 if(offset_bool){
                     xoffset += points1[i].x - points0[i].x;
@@ -436,10 +449,9 @@ cv::Mat X;
                 cv::circle( image_disp, points1[i], 3, cv::Scalar(0,255,0), -1, 8);
             }
         }
-        if(offset_bool == 1){
+        if(offset_bool == 1) {
             found_temp = 0;
-        }
-        else{
+        } else {
             
             center_x = center_x + (xoffset/numoffset);
             center_y = center_y + (yoffset/numoffset);
@@ -452,7 +464,8 @@ cv::Mat X;
         points0 = pointstemp;
         temp_img = image.clone();
     }
-    */
+    
+    
     
     
     // lets put everything back where it belongs
