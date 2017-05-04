@@ -21,12 +21,14 @@
 #import  "opencv2/objdetect/objdetect.hpp"
 #include "opencv2/core/core.hpp"
 #include "opencv2/highgui/highgui.hpp"
+#include <math.h>
 #endif
 
 
 using namespace std;
 
 #define PT_SIZE (20)
+#define PI (3.14159265)
 
 
 @interface DlibWrapper ()
@@ -510,7 +512,8 @@ cv::Mat X;
                     
                     draw_solid_circle(img, parabola, 3, dlib::rgb_pixel(0,230,0));
                     if (intersected == 0) {
-                        angle = -1*(2*X.at<float>(0)*i + X.at<float>(1));
+                        //angle = -1*(2*X.at<float>(0)*i + X.at<float>(1));
+                        angle = 90 - atan(2*X.at<float>(0)*i + X.at<float>(1)) * 180 / PI;
                     }
                     intersected = 1;
                 } else {
