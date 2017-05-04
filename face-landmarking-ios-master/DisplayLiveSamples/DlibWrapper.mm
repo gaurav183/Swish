@@ -513,7 +513,7 @@ cv::Mat X;
                     draw_solid_circle(img, parabola, 3, dlib::rgb_pixel(0,230,0));
                     if (intersected == 0) {
                         //angle = -1*(2*X.at<float>(0)*i + X.at<float>(1));
-                        angle = 90 - atan(2*X.at<float>(0)*i + X.at<float>(1)) * 180 / PI;
+                        angle = atan(2*X.at<float>(0)*i + X.at<float>(1)) * 180 / PI;
                     }
                     intersected = 1;
                 } else {
