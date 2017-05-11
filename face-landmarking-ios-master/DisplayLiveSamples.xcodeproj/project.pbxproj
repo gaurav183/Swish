@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		785E60841EA44ADD00A73C6B /* ball_detector.svm in Resources */ = {isa = PBXBuildFile; fileRef = 785E60831EA44ADD00A73C6B /* ball_detector.svm */; };
+		78A9622E1EB96A4000C51331 /* hoop_detector.svm in Resources */ = {isa = PBXBuildFile; fileRef = 78A9622D1EB96A4000C51331 /* hoop_detector.svm */; };
 		92044A1B1EB3BE1300F063CC /* ball_detector_10.svm in Resources */ = {isa = PBXBuildFile; fileRef = 92044A1A1EB3BE1300F063CC /* ball_detector_10.svm */; };
-		92044A1F1EB3C89A00F063CC /* hoop_detector.svm in Resources */ = {isa = PBXBuildFile; fileRef = 92044A1E1EB3C89A00F063CC /* hoop_detector.svm */; };
 		92044A211EB3CCBB00F063CC /* ball_detector_15.svm in Resources */ = {isa = PBXBuildFile; fileRef = 92044A201EB3CCBB00F063CC /* ball_detector_15.svm */; };
 		92044A231EB3E4D300F063CC /* ball_detector_30.svm in Resources */ = {isa = PBXBuildFile; fileRef = 92044A221EB3E4D300F063CC /* ball_detector_30.svm */; };
 		92044A251EB3E68300F063CC /* ball_detector_5.svm in Resources */ = {isa = PBXBuildFile; fileRef = 92044A241EB3E68300F063CC /* ball_detector_5.svm */; };
 		92191C0F1EB031AC00432788 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A1B2D51CEA41E200626AC5 /* Accelerate.framework */; };
 		92191C151EB0347A00432788 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92191C141EB0347A00432788 /* opencv2.framework */; };
+		92FDA2421EB8004F00F4E32A /* face_detector.svm in Resources */ = {isa = PBXBuildFile; fileRef = 92FDA2411EB8004F00F4E32A /* face_detector.svm */; };
 		A56695F01CE8B34B00BD7EAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56695EF1CE8B34B00BD7EAF /* AppDelegate.swift */; };
 		A56695F21CE8B34B00BD7EAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56695F11CE8B34B00BD7EAF /* ViewController.swift */; };
 		A56695F51CE8B34B00BD7EAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A56695F31CE8B34B00BD7EAF /* Main.storyboard */; };
@@ -46,12 +47,13 @@
 
 /* Begin PBXFileReference section */
 		785E60831EA44ADD00A73C6B /* ball_detector.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ball_detector.svm; sourceTree = "<group>"; };
+		78A9622D1EB96A4000C51331 /* hoop_detector.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = hoop_detector.svm; sourceTree = "<group>"; };
 		92044A1A1EB3BE1300F063CC /* ball_detector_10.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ball_detector_10.svm; sourceTree = "<group>"; };
-		92044A1E1EB3C89A00F063CC /* hoop_detector.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = hoop_detector.svm; sourceTree = "<group>"; };
 		92044A201EB3CCBB00F063CC /* ball_detector_15.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ball_detector_15.svm; sourceTree = "<group>"; };
 		92044A221EB3E4D300F063CC /* ball_detector_30.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ball_detector_30.svm; sourceTree = "<group>"; };
 		92044A241EB3E68300F063CC /* ball_detector_5.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ball_detector_5.svm; sourceTree = "<group>"; };
 		92191C141EB0347A00432788 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		92FDA2411EB8004F00F4E32A /* face_detector.svm */ = {isa = PBXFileReference; lastKnownFileType = file; path = face_detector.svm; sourceTree = "<group>"; };
 		A56695EC1CE8B34B00BD7EAF /* DisplayLiveSamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DisplayLiveSamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A56695EF1CE8B34B00BD7EAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A56695F11CE8B34B00BD7EAF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,8 +107,9 @@
 			isa = PBXGroup;
 			children = (
 				785E60831EA44ADD00A73C6B /* ball_detector.svm */,
-				92044A1E1EB3C89A00F063CC /* hoop_detector.svm */,
 				92044A201EB3CCBB00F063CC /* ball_detector_15.svm */,
+				92FDA2411EB8004F00F4E32A /* face_detector.svm */,
+				78A9622D1EB96A4000C51331 /* hoop_detector.svm */,
 				92044A241EB3E68300F063CC /* ball_detector_5.svm */,
 				92044A221EB3E4D300F063CC /* ball_detector_30.svm */,
 				92044A1A1EB3BE1300F063CC /* ball_detector_10.svm */,
@@ -275,11 +278,12 @@
 			files = (
 				A56695FA1CE8B34B00BD7EAF /* LaunchScreen.storyboard in Resources */,
 				92044A1B1EB3BE1300F063CC /* ball_detector_10.svm in Resources */,
+				78A9622E1EB96A4000C51331 /* hoop_detector.svm in Resources */,
 				785E60841EA44ADD00A73C6B /* ball_detector.svm in Resources */,
+				92FDA2421EB8004F00F4E32A /* face_detector.svm in Resources */,
 				A56695F71CE8B34B00BD7EAF /* Assets.xcassets in Resources */,
 				A56695F51CE8B34B00BD7EAF /* Main.storyboard in Resources */,
 				92044A231EB3E4D300F063CC /* ball_detector_30.svm in Resources */,
-				92044A1F1EB3C89A00F063CC /* hoop_detector.svm in Resources */,
 				92044A251EB3E68300F063CC /* ball_detector_5.svm in Resources */,
 				92044A211EB3CCBB00F063CC /* ball_detector_15.svm in Resources */,
 			);
@@ -454,7 +458,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 8BX48Q3UMW;
+				DEVELOPMENT_TEAM = 2C369GLP28;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -473,7 +478,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/DisplayLiveSamples/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zweigraf.DisplayLiveSamples-gaurav-lala";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zweigraf.DisplayLiveSamples-gaurav-laha";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DisplayLiveSamples/DisplayLiveSamples-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -486,7 +491,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 8BX48Q3UMW;
+				DEVELOPMENT_TEAM = 2C369GLP28;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -505,7 +511,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/DisplayLiveSamples/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.zweigraf.DisplayLiveSamples-gaurav-lala";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zweigraf.DisplayLiveSamples-gaurav-laha";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DisplayLiveSamples/DisplayLiveSamples-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

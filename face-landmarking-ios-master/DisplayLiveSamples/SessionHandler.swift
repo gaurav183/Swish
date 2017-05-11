@@ -31,7 +31,9 @@ class SessionHandler : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, A
         
         let input = try! AVCaptureDeviceInput(device: device)
         
-        session.sessionPreset = AVCaptureSessionPreset1280x720
+        //THIS line of code was added to change the image resolution
+        session.sessionPreset = AVCaptureSessionPreset1920x1080
+        
         
         
         let output = AVCaptureVideoDataOutput()
@@ -57,8 +59,6 @@ class SessionHandler : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, A
         let settings: [AnyHashable: Any] = [kCVPixelBufferPixelFormatTypeKey as AnyHashable: Int(kCVPixelFormatType_32BGRA)]
         output.videoSettings = settings
     
-        // availableMetadataObjectTypes change when output is added to session.
-        // before it is added, availableMetadataObjectTypes is empty
         metaOutput.metadataObjectTypes = [AVMetadataObjectTypeFace]
         
         wrapper?.prepare()
@@ -66,33 +66,18 @@ class SessionHandler : NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, A
         session.startRunning()
     }
     
-    // MARK: AVCaptureVideoDataOutputSampleBufferDelegate
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
         
         connection.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
         wrapper?.doWork(on: sampleBuffer)
         
-        /*
-        if !currentMetadata.isEmpty {
-            /* let boundsArray = currentMetadata
-                .flatMap { $0 as? AVMetadataFaceObject }
-                .map { (faceObject) -> NSValue in
-                    let convertedObject = captureOutput.transformedMetadataObject(for: faceObject, connection: connection)
-                    return NSValue(cgRect: convertedObject!.bounds)
-            }
-            */
-            wrapper?.doWork(on: sampleBuffer);//, inRects: boundsArray)
-        }
-        */
-
+    
         layer.enqueue(sampleBuffer)
     }
     
     func captureOutput(_ captureOutput: AVCaptureOutput!, didDrop sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
-        //print("DidDropSampleBuffer")
     }
     
-    // MARK: AVCaptureMetadataOutputObjectsDelegate
     
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         currentMetadata = metadataObjects as [AnyObject]

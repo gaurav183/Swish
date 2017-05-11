@@ -1,0 +1,390 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<?xml-stylesheet type='text/xsl' href='image_metadata_stylesheet.xsl'?>
+<dataset>
+<name>imglab dataset</name>
+<comment>Created by imglab tool.</comment>
+<images>
+  <image file='frame-000000.jpg'>
+    <box top='237' left='94' width='29' height='31'/>
+  </image>
+  <image file='frame-000001.jpg'>
+    <box top='237' left='96' width='28' height='34'/>
+  </image>
+  <image file='frame-000002.jpg'>
+    <box top='238' left='92' width='35' height='34'/>
+  </image>
+  <image file='frame-000003.jpg'>
+    <box top='240' left='91' width='34' height='30'/>
+  </image>
+  <image file='frame-000004.jpg'>
+    <box top='239' left='93' width='29' height='30'/>
+  </image>
+  <image file='frame-000005.jpg'>
+    <box top='238' left='89' width='35' height='32'/>
+  </image>
+  <image file='frame-000006.jpg'>
+    <box top='238' left='89' width='33' height='30'/>
+  </image>
+  <image file='frame-000007.jpg'>
+    <box top='239' left='93' width='28' height='30'/>
+  </image>
+  <image file='frame-000008.jpg'>
+    <box top='239' left='90' width='32' height='29'/>
+  </image>
+  <image file='frame-000024.jpg'>
+    <box top='277' left='67' width='30' height='27'/>
+  </image>
+  <image file='frame-000025.jpg'>
+    <box top='279' left='66' width='30' height='26'/>
+  </image>
+  <image file='frame-000026.jpg'>
+  </image>
+  <image file='frame-000039.jpg'>
+    <box top='271' left='88' width='28' height='25'/>
+  </image>
+  <image file='frame-000040.jpg'>
+    <box top='264' left='92' width='30' height='26'/>
+  </image>
+  <image file='frame-000041.jpg'>
+    <box top='255' left='98' width='28' height='29'/>
+  </image>
+  <image file='frame-000042.jpg'>
+    <box top='246' left='96' width='31' height='26'/>
+  </image>
+  <image file='frame-000043.jpg'>
+    <box top='235' left='96' width='26' height='28'/>
+  </image>
+  <image file='frame-000044.jpg'>
+    <box top='227' left='87' width='28' height='29'/>
+  </image>
+  <image file='frame-000054.jpg'>
+    <box top='142' left='79' width='35' height='28'/>
+  </image>
+  <image file='frame-000055.jpg'>
+    <box top='117' left='92' width='34' height='32'/>
+  </image>
+  <image file='frame-000056.jpg'>
+    <box top='98' left='104' width='35' height='30'/>
+  </image>
+  <image file='frame-000057.jpg'>
+    <box top='79' left='119' width='32' height='32'/>
+  </image>
+  <image file='frame-000058.jpg'>
+    <box top='62' left='132' width='32' height='27'/>
+  </image>
+  <image file='frame-000059.jpg'>
+    <box top='41' left='146' width='29' height='30'/>
+  </image>
+  <image file='frame-000060.jpg'>
+    <box top='26' left='158' width='33' height='32'/>
+  </image>
+  <image file='frame-000061.jpg'>
+    <box top='7' left='170' width='35' height='36'/>
+  </image>
+  <image file='frame-000062.jpg'>
+    <box top='1' left='188' width='28' height='24'/>
+  </image>
+  <image file='frame-000086.jpg'>
+    <box top='14' left='508' width='32' height='30'/>
+  </image>
+  <image file='frame-000087.jpg'>
+  </image>
+  <image file='frame-000088.jpg'>
+  </image>
+  <image file='frame-000089.jpg'>
+  </image>
+  <image file='frame-000090.jpg'>
+  </image>
+  <image file='frame-000091.jpg'>
+    <box top='63' left='551' width='30' height='31'/>
+  </image>
+  <image file='frame-000092.jpg'>
+    <box top='69' left='552' width='33' height='30'/>
+  </image>
+  <image file='frame-000093.jpg'>
+    <box top='74' left='556' width='32' height='32'/>
+  </image>
+  <image file='frame-000094.jpg'>
+    <box top='77' left='559' width='32' height='34'/>
+  </image>
+  <image file='frame-000095.jpg'>
+    <box top='89' left='562' width='32' height='31'/>
+  </image>
+  <image file='frame-000096.jpg'>
+    <box top='98' left='566' width='29' height='33'/>
+  </image>
+  <image file='frame-000097.jpg'>
+    <box top='110' left='569' width='31' height='30'/>
+  </image>
+  <image file='frame-000098.jpg'>
+    <box top='121' left='570' width='31' height='33'/>
+  </image>
+  <image file='frame-000099.jpg'>
+    <box top='136' left='570' width='36' height='31'/>
+  </image>
+  <image file='frame-000100.jpg'>
+    <box top='151' left='579' width='29' height='31'/>
+  </image>
+  <image file='frame-000101.jpg'>
+    <box top='168' left='580' width='32' height='31'/>
+  </image>
+  <image file='frame-000102.jpg'>
+    <box top='183' left='585' width='32' height='32'/>
+  </image>
+  <image file='frame-000103.jpg'>
+    <box top='203' left='587' width='30' height='31'/>
+  </image>
+  <image file='frame-000104.jpg'>
+    <box top='223' left='589' width='34' height='32'/>
+  </image>
+  <image file='frame-000105.jpg'>
+    <box top='245' left='594' width='31' height='31'/>
+  </image>
+  <image file='frame-000106.jpg'>
+    <box top='267' left='598' width='29' height='32'/>
+  </image>
+  <image file='frame-000107.jpg'>
+    <box top='289' left='601' width='33' height='32'/>
+  </image>
+  <image file='frame-000108.jpg'>
+    <box top='316' left='603' width='33' height='29'/>
+  </image>
+  <image file='frame-000109.jpg'>
+    <box top='337' left='607' width='32' height='37'/>
+  </image>
+  <image file='frame-000110.jpg'>
+  </image>
+  <image file='frame-000111.jpg'>
+  </image>
+  <image file='frame-000112.jpg'>
+  </image>
+  <image file='frame-000113.jpg'>
+  </image>
+  <image file='frame-000114.jpg'>
+  </image>
+  <image file='frame-000115.jpg'>
+  </image>
+  <image file='frame-000116.jpg'>
+  </image>
+  <image file='frame-000117.jpg'>
+  </image>
+  <image file='frame-000118.jpg'>
+  </image>
+  <image file='frame-000119.jpg'>
+  </image>
+  <image file='frame-000120.jpg'>
+  </image>
+  <image file='frame-000121.jpg'>
+  </image>
+  <image file='frame-000122.jpg'>
+  </image>
+  <image file='frame-000123.jpg'>
+  </image>
+  <image file='frame-000124.jpg'>
+  </image>
+  <image file='frame-000125.jpg'>
+  </image>
+  <image file='frame-000126.jpg'>
+  </image>
+  <image file='frame-000127.jpg'>
+  </image>
+  <image file='frame-000128.jpg'>
+  </image>
+  <image file='frame-000129.jpg'>
+  </image>
+  <image file='frame-000130.jpg'>
+  </image>
+  <image file='frame-000131.jpg'>
+  </image>
+  <image file='frame-000132.jpg'>
+  </image>
+  <image file='frame-000133.jpg'>
+  </image>
+  <image file='frame-000134.jpg'>
+  </image>
+  <image file='frame-000135.jpg'>
+  </image>
+  <image file='frame-000136.jpg'>
+  </image>
+  <image file='frame-000137.jpg'>
+  </image>
+  <image file='frame-000588.jpg'>
+  </image>
+  <image file='frame-000589.jpg'>
+  </image>
+  <image file='frame-000590.jpg'>
+  </image>
+  <image file='frame-000591.jpg'>
+  </image>
+  <image file='frame-000592.jpg'>
+  </image>
+  <image file='frame-000593.jpg'>
+  </image>
+  <image file='frame-000594.jpg'>
+  </image>
+  <image file='frame-000595.jpg'>
+  </image>
+  <image file='frame-000596.jpg'>
+  </image>
+  <image file='frame-000597.jpg'>
+  </image>
+  <image file='frame-000598.jpg'>
+  </image>
+  <image file='frame-000599.jpg'>
+  </image>
+  <image file='frame-000600.jpg'>
+  </image>
+  <image file='frame-000601.jpg'>
+  </image>
+  <image file='frame-000602.jpg'>
+  </image>
+  <image file='frame-000603.jpg'>
+  </image>
+  <image file='frame-000604.jpg'>
+  </image>
+  <image file='frame-000605.jpg'>
+  </image>
+  <image file='frame-000606.jpg'>
+  </image>
+  <image file='frame-000607.jpg'>
+  </image>
+  <image file='frame-000608.jpg'>
+  </image>
+  <image file='frame-000609.jpg'>
+  </image>
+  <image file='frame-000610.jpg'>
+  </image>
+  <image file='frame-000611.jpg'>
+  </image>
+  <image file='frame-000612.jpg'>
+  </image>
+  <image file='frame-000613.jpg'>
+  </image>
+  <image file='frame-000614.jpg'>
+  </image>
+  <image file='frame-000615.jpg'>
+  </image>
+  <image file='frame-000616.jpg'>
+  </image>
+  <image file='frame-000617.jpg'>
+  </image>
+  <image file='frame-000618.jpg'>
+  </image>
+  <image file='frame-000619.jpg'>
+  </image>
+  <image file='frame-000620.jpg'>
+  </image>
+  <image file='frame-000621.jpg'>
+  </image>
+  <image file='frame-000622.jpg'>
+  </image>
+  <image file='frame-000623.jpg'>
+  </image>
+  <image file='frame-000624.jpg'>
+  </image>
+  <image file='frame-000625.jpg'>
+  </image>
+  <image file='frame-000626.jpg'>
+  </image>
+  <image file='frame-000627.jpg'>
+  </image>
+  <image file='frame-000628.jpg'>
+  </image>
+  <image file='frame-000629.jpg'>
+  </image>
+  <image file='frame-000630.jpg'>
+  </image>
+  <image file='frame-000631.jpg'>
+  </image>
+  <image file='frame-000632.jpg'>
+  </image>
+  <image file='frame-000633.jpg'>
+  </image>
+  <image file='frame-000634.jpg'>
+  </image>
+  <image file='frame-000635.jpg'>
+  </image>
+  <image file='frame-000636.jpg'>
+  </image>
+  <image file='frame-000637.jpg'>
+  </image>
+  <image file='frame-000638.jpg'>
+  </image>
+  <image file='frame-000639.jpg'>
+  </image>
+  <image file='frame-000640.jpg'>
+  </image>
+  <image file='frame-000641.jpg'>
+  </image>
+  <image file='frame-000642.jpg'>
+  </image>
+  <image file='frame-000643.jpg'>
+  </image>
+  <image file='frame-000644.jpg'>
+  </image>
+  <image file='frame-000645.jpg'>
+  </image>
+  <image file='frame-000646.jpg'>
+  </image>
+  <image file='frame-000647.jpg'>
+  </image>
+  <image file='frame-000648.jpg'>
+  </image>
+  <image file='frame-000649.jpg'>
+  </image>
+  <image file='frame-000650.jpg'>
+  </image>
+  <image file='frame-000651.jpg'>
+  </image>
+  <image file='frame-000652.jpg'>
+  </image>
+  <image file='frame-000653.jpg'>
+  </image>
+  <image file='frame-000654.jpg'>
+  </image>
+  <image file='frame-000655.jpg'>
+  </image>
+  <image file='frame-000656.jpg'>
+  </image>
+  <image file='frame-000657.jpg'>
+  </image>
+  <image file='frame-000658.jpg'>
+  </image>
+  <image file='frame-000659.jpg'>
+  </image>
+  <image file='frame-000660.jpg'>
+  </image>
+  <image file='frame-000661.jpg'>
+  </image>
+  <image file='frame-000662.jpg'>
+  </image>
+  <image file='frame-000663.jpg'>
+  </image>
+  <image file='frame-000664.jpg'>
+  </image>
+  <image file='frame-000665.jpg'>
+  </image>
+  <image file='frame-000666.jpg'>
+  </image>
+  <image file='frame-000667.jpg'>
+  </image>
+  <image file='frame-000668.jpg'>
+  </image>
+  <image file='frame-000669.jpg'>
+  </image>
+  <image file='frame-000670.jpg'>
+  </image>
+  <image file='frame-000671.jpg'>
+  </image>
+  <image file='frame-000672.jpg'>
+  </image>
+  <image file='frame-000673.jpg'>
+  </image>
+  <image file='frame-000674.jpg'>
+  </image>
+  <image file='frame-000675.jpg'>
+  </image>
+  <image file='frame-000676.jpg'>
+  </image>
+</images>
+</dataset>
