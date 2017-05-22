@@ -1,6 +1,8 @@
 # Swish
 Using optimized mobile vision algorithms to detect, track and predict basketball shot trajectory.
 
+https://youtu.be/ROy2NNFsKAM
+
 Anand Kapadia and Gaurav Lahiry
 
 ## Summary
